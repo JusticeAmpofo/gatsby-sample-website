@@ -12,6 +12,8 @@ const Layout = ({ children }) => {
         <>
             <Header />
             <main>{children}</main>
+            {/* Safety Bar */}
+            {/* ISI */}
             <Footer />
         </>
     );
