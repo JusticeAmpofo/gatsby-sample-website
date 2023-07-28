@@ -1,0 +1,25 @@
+:root {
+    /* Colours */
+    --website-border: #4f4f4f;
+    --content-bg: #f1f1f1;
+    --med-gray-bg: #d4d4d4;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap');
+
+html {
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.2;
+}
