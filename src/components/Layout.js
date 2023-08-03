@@ -10,7 +10,7 @@ import '../styles/reset.css';
 import '../styles/global.module.css';
 import '../styles/utilities.css';
 
-const OffSetFromIsI = 40;
+const OffSetIntoIsI = 40;
 
 const Layout = ({ children }) => {
     return (
@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
             <main>{children}</main>
             <Isi />
             <Footer />
-            <SafetyBar hideOffset={OffSetFromIsI} targetId='isi' />
+            <SafetyBar hideOffset={OffSetIntoIsI} targetId='isi' />
         </GlobalProvider>
     );
 };

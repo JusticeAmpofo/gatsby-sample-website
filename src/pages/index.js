@@ -1,4 +1,6 @@
 import React from 'react';
+import { graphql } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import Layout from '../components/Layout';
 import Modal from '../components/Modal';
@@ -93,7 +95,7 @@ const tabA = [
     },
 ];
 
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
     return (
         <Layout>
             <GlobalContext.Consumer>
@@ -190,6 +192,14 @@ const IndexPage = () => {
                                 porttitor.
                             </p>
                             {/* Gastby Image */}
+                            {data.allFile.edges.map(({ node }) => (
+                                <GatsbyImage
+                                    image={getImage(node)}
+                                    alt={node.name}
+                                    key={node.id}
+                                    className='mb5'
+                                />
+                            ))}
                             <p className='mb5'>
                                 Sed massa risus, feugiat vel neque sed,
                                 facilisis elementum eros. Proin vestibulum
@@ -289,6 +299,27 @@ const IndexPage = () => {
         </Layout>
     );
 };
+
+export const query = graphql`
+    query HomePageQuery {
+        allFile(
+            filter: {
+                sourceInstanceName: { eq: "images" }
+                name: { eq: "cat" }
+            }
+        ) {
+            edges {
+                node {
+                    childImageSharp {
+                        gatsbyImageData
+                    }
+                    name
+                    id
+                }
+            }
+        }
+    }
+`;
 
 export default IndexPage;
 
