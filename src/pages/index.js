@@ -191,7 +191,6 @@ const IndexPage = ({ data }) => {
                                 tellus. Etiam rutrum volutpat est quis
                                 porttitor.
                             </p>
-                            {/* Gastby Image */}
                             {data.allFile.edges.map(({ node }) => (
                                 <GatsbyImage
                                     image={getImage(node)}
