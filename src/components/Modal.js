@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './modal.css';
 
-function Modal({ isOpen, closeModal, content }) {
+const Modal = ({ isOpen, closeModal, content }) => {
     useEffect(() => {
         if (isOpen) {
             document.body.classList.add('overflow-hidden');
@@ -30,5 +30,5 @@ function Modal({ isOpen, closeModal, content }) {
             </div>
         </>
     );
-}
+};
 export default Modal;
