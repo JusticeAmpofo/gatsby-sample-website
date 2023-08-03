@@ -4,6 +4,7 @@ import Layout from '../components/Layout';
 import Modal from '../components/Modal';
 import GlobalContext from '../context/GlobalContext';
 import * as styles from './index.module.css';
+import Tabs from '../components/Tabs';
 
 const ModalContentA = () => {
     return (
@@ -24,6 +25,73 @@ const ModalContentA = () => {
         </>
     );
 };
+
+const tabA = [
+    {
+        id: 1,
+        label: 'Tab 1',
+        content: (
+            <>
+                <h2 className='h1 mb5'>Tab 1 content</h2>
+                <p className='mb5'>This is content for when tab 1 is active.</p>
+                <p className='mb5'>This is content for when tab 1 is active.</p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Ullam soluta eius aliquid nulla. Minima sequi et assumenda
+                    cupiditate, nobis, harum temporibus natus consectetur soluta
+                    deleniti reiciendis molestiae quaerat quis dolore.
+                </p>
+            </>
+        ),
+    },
+    {
+        id: 2,
+        label: 'Tab 2',
+        content: (
+            <>
+                <h2 className='h1 mb5'>Tab 2 content</h2>
+                <p className='mb5'>This is content for when tab 2 is active.</p>
+                <p className='mb5'>This is content for when tab 2 is active.</p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Repellendus sapiente tenetur laudantium fugiat? Adipisci
+                    quis atque velit ullam assumenda pariatur officiis quos sit,
+                    temporibus ipsum labore eum blanditiis nam amet nostrum
+                    culpa enim harum eius dicta itaque expedita! Iste id vero
+                    rerum delectus iure quas illo, quasi doloremque distinctio
+                    molestias.
+                </p>
+            </>
+        ),
+    },
+    {
+        id: 3,
+        label: 'Tab 3',
+        content: (
+            <>
+                <h2 className='h1 mb5'>Tab 3 content</h2>
+                <p className='mb5'>This is content for when tab 3 is active.</p>
+                <p className='mb5'>This is content for when tab 3 is active.</p>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Neque tempora alias corrupti non aliquam officia, maiores
+                    laudantium aspernatur enim, repellendus voluptates. Rem
+                    fugit recusandae aut dolorem ipsam enim aspernatur! Iste
+                    voluptatum rerum ea repellendus minima? Consequuntur
+                    adipisci esse doloribus, et alias inventore molestiae
+                    aliquid quidem accusamus nemo illum odio distinctio
+                    voluptatum, rerum, sed corporis obcaecati. Vero velit hic
+                    consequatur dolor mollitia! Beatae nulla atque ab. Ducimus
+                    incidunt neque eveniet iste necessitatibus! Delectus ipsum
+                    iusto quae tenetur ratione libero dolores consequatur
+                    voluptates quas ex, aperiam eos quaerat nostrum! At a non
+                    similique, esse labore, error praesentium deleniti veritatis
+                    vero possimus molestiae.
+                </p>
+            </>
+        ),
+    },
+];
 
 const IndexPage = () => {
     return (
@@ -90,7 +158,7 @@ const IndexPage = () => {
                                 consectetur porta turpis sit amet finibus. Cras
                                 rhoncus pharetra magna nec mollis.
                             </p>
-                            {/* Tab */}
+                            <Tabs tabs={tabA} />
                             <p className='mb5'>
                                 Mauris sed mauris sapien. Donec diam ex,
                                 ultrices vel blandit vel, porta nec nisi. Nulla
