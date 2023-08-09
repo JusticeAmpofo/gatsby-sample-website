@@ -1,18 +1,37 @@
 import React, { useState } from 'react';
+import { Link } from 'gatsby';
 import './header.css';
 
 const menuLinks = [
     {
+        name: 'Home',
+        href: '/',
+        isInternal: true,
+    },
+    {
+        name: 'About',
+        href: '/about',
+        isInternal: true,
+    },
+    {
         name: 'google.com',
         href: 'https://www.google.com',
+        isInternal: false,
     },
     {
         name: 'klick.com',
         href: 'https://www.klick.com',
+        isInternal: false,
     },
     {
         name: 'unity.com',
         href: 'https://unity.com/',
+        isInternal: false,
+    },
+    {
+        name: 'Contact',
+        href: '/contact',
+        isInternal: true,
     },
 ];
 
@@ -49,14 +68,23 @@ const Header = () => {
                                         key={index}
                                         className='navigation-block__list mr1'
                                     >
-                                        <a
-                                            className='navigation-block__link'
-                                            href={menuLink.href}
-                                            target='_blank'
-                                            rel='noreferrer'
-                                        >
-                                            {menuLink.name}
-                                        </a>
+                                        {menuLink.isInternal ? (
+                                            <Link
+                                                to={menuLink.href}
+                                                className='navigation-block__link'
+                                            >
+                                                {menuLink.name}
+                                            </Link>
+                                        ) : (
+                                            <a
+                                                className='navigation-block__link'
+                                                href={menuLink.href}
+                                                target='_blank'
+                                                rel='noreferrer'
+                                            >
+                                                {menuLink.name}
+                                            </a>
+                                        )}
                                     </li>
                                 );
                             })}
@@ -78,14 +106,23 @@ const Header = () => {
                                         key={index}
                                         className='navigation-block__list-mobile mb3'
                                     >
-                                        <a
-                                            className='navigation-block__link navigation-block__link--mobile'
-                                            href={menuLink.href}
-                                            target='_blank'
-                                            rel='noreferrer'
-                                        >
-                                            {menuLink.name}
-                                        </a>
+                                        {menuLink.isInternal ? (
+                                            <Link
+                                                to={menuLink.href}
+                                                className='navigation-block__link navigation-block__link--mobile'
+                                            >
+                                                {menuLink.name}
+                                            </Link>
+                                        ) : (
+                                            <a
+                                                className='navigation-block__link navigation-block__link--mobile'
+                                                href={menuLink.href}
+                                                target='_blank'
+                                                rel='noreferrer'
+                                            >
+                                                {menuLink.name}
+                                            </a>
+                                        )}
                                     </li>
                                 );
                             })}
