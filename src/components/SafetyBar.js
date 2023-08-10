@@ -19,6 +19,7 @@ const SafetyBar = ({ hideOffset, targetId }) => {
             setIsVisible(distanceToBottom < hideOffset);
         };
 
+        scrollHandler();
         window.addEventListener('scroll', scrollHandler);
     }, [hideOffset, targetId]);
 
