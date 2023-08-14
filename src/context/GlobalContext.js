@@ -1,28 +1,21 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useReducer } from 'react';
+import globalReducer from './GlobalReducer';
 
 const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [modalContent, setModalContent] = useState(null);
-
-    const openModal = (content) => {
-        setModalIsOpen(true);
-        setModalContent(content);
+    const initialState = {
+        modalIsOpen: false,
+        modalContent: null,
     };
 
-    const closeModal = () => {
-        setModalIsOpen(false);
-        setModalContent(null);
-    };
+    const [state, dispatch] = useReducer(globalReducer, initialState);
 
     return (
         <GlobalContext.Provider
             value={{
-                modalIsOpen,
-                modalContent,
-                openModal,
-                closeModal,
+                ...state,
+                dispatch,
             }}
         >
             {children}

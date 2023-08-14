@@ -122,7 +122,10 @@ const IndexPage = ({ data }) => {
                             </p>
                             <button
                                 onClick={() => {
-                                    context.openModal(<ModalContentA />);
+                                    context.dispatch({
+                                        type: 'OPEN_MODAL',
+                                        payload: <ModalContentA />,
+                                    });
                                 }}
                                 className='btn mb5'
                             >
@@ -289,7 +292,9 @@ const IndexPage = ({ data }) => {
                         </div>
                         <Modal
                             isOpen={context.modalIsOpen}
-                            closeModal={() => context.closeModal()}
+                            closeModal={() =>
+                                context.dispatch({ type: 'CLOSE_MODAL' })
+                            }
                             content={context.modalContent}
                         />
                     </div>

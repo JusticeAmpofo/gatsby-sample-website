@@ -23,7 +23,7 @@ const SafetyBar = ({ hideOffset, targetId }) => {
         window.addEventListener('scroll', scrollHandler);
     }, [hideOffset, targetId]);
 
-    const { closeModal } = useContext(GlobalContext);
+    const { dispatch } = useContext(GlobalContext);
 
     if (!isVisible) return null;
 
@@ -31,7 +31,9 @@ const SafetyBar = ({ hideOffset, targetId }) => {
         <div className='safety-bar container website-border'>
             <div className='safety-bar__content'>
                 <a
-                    onClick={() => closeModal()}
+                    onClick={() => {
+                        dispatch({ type: 'SAFETY_BAR_BUTTON_CLICKED' });
+                    }}
                     href='#isi'
                     className='btn safety__btn-isi'
                 >
